@@ -1,8 +1,9 @@
 # myapp.rb
 require 'sinatra'
-require_relative 'lib/game'
-require_relative 'lib/player'
-require_relative 'lib/attack'
+require'./lib/game'
+require './lib/computer_player'
+require './lib/player'
+require './lib/attack'
 
 # Battle
 class Battle < Sinatra::Base
@@ -13,7 +14,11 @@ class Battle < Sinatra::Base
 
   post '/names' do
     player_1 = Player.new(params[:player_1_name])
-    player_2 = Player.new(params[:player_2_name])
+    if params[:player_2_name].empty?
+      player_2 = ComputerPlayer.new
+    else
+      player_2 = Player.new(params[:player_2_name])
+    end
     Game.create(player_1, player_2)
     redirect '/play'
   end

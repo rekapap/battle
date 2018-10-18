@@ -22,4 +22,11 @@ describe Player do
       expect { the_rock.receive_damage(10) }.to change { the_rock.hit_points }.by(-10)
     end
   end
+
+  describe '#computer?' do
+    it 'returns false' do
+      expect(vin_diesel.computer?).to be false
+    end
+  end
+
 end

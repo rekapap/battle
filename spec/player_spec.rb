@@ -17,17 +17,9 @@ describe Player do
     end
   end
 
-  describe '#attack' do
-    it 'damages the player' do
-      expect(the_rock).to receive(:receive_damage)
-      vin_diesel.attack(the_rock)
-    end
-  end
-
   describe '#receive_damage' do
     it 'reduces the player hit points' do
-      expect { the_rock.receive_damage }.to change { 
-        the_rock.hit_points }.by(-10)
+      expect { the_rock.receive_damage(10) }.to change { the_rock.hit_points }.by(-10)
     end
   end
 end

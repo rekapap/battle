@@ -17,7 +17,7 @@ class Player
     @computer
   end
 
-  def change_poisoned_turns=(amount)
+  def poisoned_turns=(amount)
     @poisoned_turns = amount
   end
 end

@@ -35,9 +35,9 @@ describe Player do
       end
     end
 
-    describe '#change_poisoned_turns=' do
+    describe '#poisoned_turns=' do
       it 'set the poisioned_turns to an amount' do
-        expect(vin_diesel.change_poisoned_turns = 1).to eq 1
+        expect(vin_diesel.poisoned_turns = 1).to eq 1
       end
     end
 

@@ -1,16 +1,21 @@
 #  Move
 class Move
-  def initialize(player)
+  attr_reader :rate
+  DEFAULT_TURNS = 1
+  def initialize(player) #, attack_turns = DEFAULT_TURNS)
     @player = player
-    @change_next_turn = false
-    @change_opponents_turn = false
+    @change_opponent_turn = false
+    @attack_turns = DEFAULT_TURNS #attack_turns
   end
 
   def self.run(player)
     new(player).run
   end
 
-  protected
+  def change_opponent_turn?
+    @change_opponent_turn
+  end
 
   def run; end
+
 end

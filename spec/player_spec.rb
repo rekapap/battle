@@ -28,5 +28,18 @@ describe Player do
       expect(vin_diesel.computer?).to be false
     end
   end
+  context 'poisoning' do
+    describe '#poisoned_turns' do
+      it 'return 0 by default' do
+        expect(vin_diesel.poisoned_turns).to eq 0
+      end
+    end
 
+    describe '#change_poisoned_turns=' do
+      it 'set the poisioned_turns to an amount' do
+        expect(vin_diesel.change_poisoned_turns = 1).to eq 1
+      end
+    end
+
+  end
 end

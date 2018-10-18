@@ -13,3 +13,12 @@ end
 def attack_both_player
   2.times { attack_one_player }
 end
+
+def poison_one_player
+  click_button 'Poison'
+  click_button 'OK'
+end
+
+def poison_both_player
+  2.times { poison_one_player }
+end

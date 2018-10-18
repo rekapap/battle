@@ -1,3 +1,4 @@
+# Attack
 class Attack
   def initialize(player)
     @player = player

@@ -1,6 +1,7 @@
 # myapp.rb
 require 'sinatra'
 require'./lib/game'
+require './helpers/attack_helper'
 require './lib/computer_player'
 require './lib/player'
 require './lib/attack'
@@ -8,6 +9,8 @@ require './lib/attack'
 # Battle
 class Battle < Sinatra::Base
   enable :sessions
+  helpers AttackHelper
+
   get '/' do
     erb :index
   end
@@ -29,12 +32,7 @@ class Battle < Sinatra::Base
   end
 
   post '/attack' do
-    Attack.run(Game.current_game.opponent_of(Game.current_game.current_turn))
-    if Game.current_game.game_over?
-      redirect '/game-over'
-    else
-      redirect '/attack'
-    end
+    attack_and_redirect(Game.current_game)
   end
 
   get '/attack' do
